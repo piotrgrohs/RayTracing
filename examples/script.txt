@@ -1,0 +1,34 @@
+/* 
+Przyklad na rozmycie tekstury - widac iz nie sklada
+sie ona z ostrych kwadratowych pikesli, lecz ich krawedzie
+sa rozmyte (bilinearna filtracja)
+*/
+
+
+/* Nazwa pliku do zapisu: */
+
+NAME script.bmp
+
+/* Jeden material... */
+
+MAP PLA planarne 4000 4000
+
+TEXT IMG teksturka beaugrai.bmp planarne
+
+MAT material4 teksturka 0.3 90 0 0 0
+
+/* Definiujemy swiatla... */
+LIGHT PT l1 0.5 0.5 0.5 0 300 500
+LIGHT PT l2 0.4 0.4 0 -200 200 -200
+LIGHT PT l3 0.4 0.4 0.8 0 300 -200
+LIGHT PT l4 0.8 0.8 0.8 0 0 500
+
+/* Plaszczyzna */
+OBJ PLA pl 0 4 -5 4000 material4
+
+/* Ustawienie rozdzielczosci i pola widzenia... */
+SCE RES 320 200 1
+SCE FOV 90
+
+/* No i start... */
+TRACE

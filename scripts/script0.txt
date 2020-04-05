@@ -1,0 +1,45 @@
+/* 
+Przyklad na kolorowe swiatla i uzycie przezroczystosci
+(najwieksza kula na pierwszym planie)
+*/
+
+
+/* Nazwa pliku do zapisu: */
+
+NAME script0.bmp
+
+/* Na poczatek definiujemy kilka materialow.
+potrzebne do tego sa mapowanie i tekstury... */
+
+MAP SPH sferyczne
+MAP PLA planarne 1500 1000
+
+TEXT IMG teksturka burrglur.bmp sferyczne 
+TEXT IMG teksturka2 test.bmp sferyczne
+TEXT IMG teksturka3 filmgrai.bmp planarne
+
+MAT material2 teksturka 0.3 90 0.9 0 0
+MAT material3 teksturka2 0.2 80 0.7 0.7 1.5
+MAT material4 teksturka3 0.3 30 0 0 0
+
+/* Definiujemy swiatla... rozne kolorki */
+LIGHT PT l1 0.1 0.1 0.1 0 300 500
+LIGHT PT l2 0.2 0.2 0.2 -200 200 -200
+LIGHT PT l3 0.2 0.2 0.2 0 300 -200
+LIGHT PT l4 0.2 0.2 0.2 0 0 500
+
+/* Kilka kul i plaszczyzna */
+OBJ SPH s6 -320 -320 600 400 material3
+OBJ SPH s3 280 100 450 50 material2
+OBJ PLA pl 0 4 -5 4000 material4
+OBJ SPH s5 0 0 	800 150 material3
+OBJ SPH s2 -120 300 350 190 material2
+OBJ SPH s1 200 20 850 90 material2
+OBJ SPH s4 300 80 200 150 material2
+
+/* Ustawienie rozdzielczosci i pola widzenia... */
+SCE RES 640 480 1
+SCE FOV 90
+
+/* No i start... */
+TRACE

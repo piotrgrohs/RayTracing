@@ -1,0 +1,46 @@
+/*
+Przyklad uzycia oswietlenia stozkowego,
+ktore latwo zauwazyc (zoltawy kolor)
+*/
+
+
+/* Nazwa pliku do zapisu: */
+
+NAME scriptb.bmp
+
+/* Na poczatek definiujemy kilka materialow.
+potrzebne do tego sa mapowanie i tekstury... */
+
+MAP SPH sferyczne
+MAP PLA planarne 1500 1000
+
+TEXT IMG teksturka warpping.bmp sferyczne 
+TEXT IMG teksturka2 burrglur.bmp sferyczne
+TEXT IMG teksturka3 filmgrai.bmp planarne
+TEXT ONEC czerwony .7 0 0
+
+MAT material czerwony 0.3 90 0.7 0.2 0.4
+MAT material2 teksturka 0.3 90 0.7 0 0
+MAT material3 teksturka2 0.2 80 0.2 0.8 1.1
+MAT material4 teksturka3 0.3 90 0.3 0 0
+
+/* Definiujemy swiatla... tutaj uzyto stozkowe swiatlo */
+LIGHT PT l3 0 0 0.8 0 300 -200
+LIGHT PT l4 0.8 0.8 0 0 0 500
+LIGHT SPOT l5 0.8 0.8 0.8 0 300 800 0 -1 0 45
+
+/* Kule i plaszczyzna... */
+OBJ SPH s2 200 20 850 60 material2
+OBJ SPH s4 220 180 650 60 material2
+OBJ SPH s5 50 200 450 60 material2
+OBJ SPH s6 100 90 250 60 material2
+OBJ SPH s1 0 0 800 150 material3
+OBJ SPH s3 300 -300 600 200 material3
+OBJ PLA pl 0 4 -5 4000 material4
+
+/* Parametry sceny... */
+SCE RES 320 200 1
+SCE FOV 90
+
+/* I ruszamy! */
+TRACE
